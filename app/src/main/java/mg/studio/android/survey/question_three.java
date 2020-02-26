@@ -10,6 +10,8 @@ import android.widget.*;
 public class question_three extends AppCompatActivity {
     Button q3_next;
     int count = 0;
+    String q3input;//q1input,q2input,
+    String[] inputArr;
     private  RadioGroup  radioGroup = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,10 @@ public class question_three extends AppCompatActivity {
         q3_next.setOnClickListener(ButtonClick);
         radioGroup=(RadioGroup)findViewById(R.id.q3_radioGroupId);
         radioGroup.setOnCheckedChangeListener(RadioClick);
+        //String[]
+        inputArr = getIntent().getStringArrayExtra("inputArr");
+        //q1input = inputArr[0];
+        //q2input = inputArr[1];
     }
     private RadioGroup.OnCheckedChangeListener RadioClick=new RadioGroup.OnCheckedChangeListener() {
         @Override
@@ -27,6 +33,8 @@ public class question_three extends AppCompatActivity {
             switch (group.getCheckedRadioButtonId()) {
                 default:
                     count += 1;
+                    RadioButton e = (RadioButton) findViewById(id);
+                    q3input = e.getText().toString();
                     break;
             }
         }
@@ -39,6 +47,10 @@ public class question_three extends AppCompatActivity {
                     if(count > 0)
                     {
                         Intent intent = new Intent(question_three.this,question_four.class);
+                        //Bundle bundle = new Bundle();
+                        //bundle.putStringArray("inputArr", new String[]{inputArr[0],inputArr[1],inputArr[2]});
+                        //intent.putExtras(bundle);
+                        intent.putExtra("inputArr", new String[]{inputArr[0],inputArr[1],q3input});//q1input,q2input
                         startActivity(intent);
                     }
 

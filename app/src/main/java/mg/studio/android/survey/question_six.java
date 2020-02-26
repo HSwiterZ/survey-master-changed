@@ -10,6 +10,8 @@ import android.widget.*;
 public class question_six extends AppCompatActivity {
     Button q6_next;
     EditText editText;
+    String[] inputArr;
+    String q6input;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +19,7 @@ public class question_six extends AppCompatActivity {
         q6_next = (Button)findViewById(R.id.q6_next);
         q6_next.setOnClickListener(ButtonClick);
         editText = (EditText)findViewById(R.id.q6_edittext);
+        inputArr = getIntent().getStringArrayExtra("inputArr");
     }
     OnClickListener ButtonClick = new OnClickListener() {
         @Override
@@ -25,7 +28,11 @@ public class question_six extends AppCompatActivity {
                 case R.id.q6_next:
                     if(editText.length()!=0)
                     {
+                        q6input = editText.getText().toString();
+                        //editText.setText(inputArr[2]);
                         Intent intent = new Intent(question_six.this,question_seven.class);
+                        intent.putExtra("inputArr", new String[]{inputArr[0],inputArr[1],
+                                inputArr[2],inputArr[3],inputArr[4],q6input});
                         startActivity(intent);
                     }
 

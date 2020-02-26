@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class AnswerShow extends AppCompatActivity {
+public class report extends AppCompatActivity {
     String[] inputArr;
     TextView textview1,textview2,textview3,textview4,
             textview5,textview6,textview7,textview8,
@@ -13,7 +13,7 @@ public class AnswerShow extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.answer_show);
+        setContentView(R.layout.report);
         inputArr = getIntent().getStringArrayExtra("inputArr");
         textview1 = (TextView)findViewById(R.id.q1_answer);
         textview2 = (TextView)findViewById(R.id.q2_answer);
