@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".finish"></activity>
+        <activity android:name=".report"></activity>
+        <activity android:name=".finish" />
         <activity android:name=".question_twelve" />
         <activity android:name=".question_eleven" />
         <activity android:name=".question_ten" />

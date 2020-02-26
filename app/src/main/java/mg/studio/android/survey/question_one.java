@@ -12,6 +12,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 public class question_one extends AppCompatActivity {
     Button q1_next;
     int count = 0;
+    String q1input = null;
     private  RadioGroup  radioGroup = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,8 @@ public class question_one extends AppCompatActivity {
                          switch (group.getCheckedRadioButtonId()) {
                              default:
                                  count += 1;
+                                 RadioButton e = (RadioButton) findViewById(id);
+                                 q1input = e.getText().toString();
                                  break;
                              }
                     }
@@ -41,6 +44,7 @@ public class question_one extends AppCompatActivity {
                     if(count > 0)
                     {
                         Intent intent = new Intent(question_one.this,question_two.class);
+                        intent.putExtra("q1input",q1input);
                         startActivity(intent);
                     }
 

@@ -10,6 +10,8 @@ import android.widget.*;
 public class question_twelve extends AppCompatActivity {
     Button q12_next;
     int count = 0;
+    String[] inputArr;
+    String q12input;
     private  RadioGroup  radioGroup = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,7 @@ public class question_twelve extends AppCompatActivity {
         q12_next.setOnClickListener(ButtonClick);
         radioGroup=(RadioGroup)findViewById(R.id.q12_radioGroupId);
         radioGroup.setOnCheckedChangeListener(RadioClick);
+        inputArr = getIntent().getStringArrayExtra("inputArr");
     }
 
     private RadioGroup.OnCheckedChangeListener RadioClick=new RadioGroup.OnCheckedChangeListener() {
@@ -28,6 +31,8 @@ public class question_twelve extends AppCompatActivity {
             switch (group.getCheckedRadioButtonId()) {
                 default:
                     count += 1;
+                    RadioButton e = (RadioButton) findViewById(id);
+                    q12input = e.getText().toString();
                     break;
             }
         }
@@ -40,6 +45,9 @@ public class question_twelve extends AppCompatActivity {
                     if(count > 0)
                     {
                         Intent intent = new Intent(question_twelve.this,finish.class);
+                        intent.putExtra("inputArr", new String[]{inputArr[0],inputArr[1],
+                                inputArr[2],inputArr[3],inputArr[4],inputArr[5],inputArr[6],
+                                inputArr[7],inputArr[8],inputArr[9],inputArr[10],q12input});
                         startActivity(intent);
                     }
             }
